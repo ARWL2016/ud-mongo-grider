@@ -6,15 +6,20 @@
 
 ####Model Instance: Functions and Properties
 - `save()` - saves an instance to its collection, returns a **promise**  
-- `remove()` - deletes instance from db, returns the **removed object**    
+- `remove()` - deletes SINGLE instance from db, returns the **removed object**    
 - `isNew` - returns true if the instance has not been saved to a collection   
+- `set()` - changes the value of a given property of an instance in memory - use with `save()` to achieve a db update. Set is not async. Takes a property value pair, e.g. `set('name', 'Joe')`
+- `update()` - 
 
 ####Model Class: Methods    
-- `find()` - finds all users that match the criteria, returns an **array**    
+- `find()` - finds all users that match the criteria, returns an **array**. If you pass find({}) it will return the whole collection    
 - `findOne()` - finds the first user that matches the criteria, returns an **object**   
-- `remove()` -  deletes all users that match passed criteria  
+- `remove()` -  deletes ALL users that match passed criteria  
 - `findOneAndRemove()` - deletes one user that match passed criteria  
-- `findByIdAndRemove()` - deletes one user that match id  
+- `findByIdAndRemove()` - deletes one user that match id (can pass in raw id or object)
+- `update()` - sets and saves - pass two objects. 
+- `findOneAndUpdate()` - sets and saves - pass two objects. 
+- `findByIdAndUpdate()` - sets and saves - pass id and object. 
 
 ####ObjectId 
 - ids are assigned by mongoose when a new record is created (even before being sent to the db) 

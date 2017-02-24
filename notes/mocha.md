@@ -12,5 +12,6 @@
 
 ####Mocha and Nodemon    
 - We can usually call `mocha --watch` to get mocha to monitor files. But this doesn't play well with mongoose. 
-- To use nodemon instead: `"test": "nodemon --exec \"mocha -R min\""` -R removes previous output and min minifies output  
+- To use nodemon instead: `"test": "nodemon --exec \"mocha -R min\""` -R min removes previous output and minifies output (works well with --watch)  
+- `-R list` --reporter gives a simple list of test cases
 
