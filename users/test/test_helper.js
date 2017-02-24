@@ -1,10 +1,24 @@
-//remember to run mongod first! 
-
 const mongoose = require('mongoose'); 
 
-mongoose.connect('mongodb://localhost/users_test'); //will create this database on the fly
-mongoose.connection
-  .once('open', () => console.log('Good to go!'))
-  .on('error', (error) => {
-    console.warn('Warning', error); 
-  });
+// mongoose.Promise = global.Promise; 
+
+before((done) => {
+  mongoose.connect('mongodb://localhost/users_test'); //will create this database on the fly
+  mongoose.connection
+    .once('open', () => {
+      done(); 
+    }) 
+    .on('error', (error) => {
+      console.warn('Warning', error); 
+    });
+}); 
+
+
+
+//test hook
+  beforeEach((done) => {
+    mongoose.connection.collections.users.drop(()=> {
+      //ready to run next test, so call: 
+      done(); 
+    }); //wipes all records
+  }); 
