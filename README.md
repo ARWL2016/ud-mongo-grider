@@ -8,6 +8,7 @@
 https://www.udemy.com/the-complete-developers-guide-to-mongodb/learn/v4/content 
 https://github.com/StephenGrider/MongoCasts 
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/ 
+http://mongoosejs.com/docs/index.html 
 
 ####Technology 
 1. MongoDB 
