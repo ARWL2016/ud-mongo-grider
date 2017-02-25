@@ -13,8 +13,13 @@ const UserSchema = new Schema({
     },
     required: [true, 'Name is required.']
   }, 
-  postCount: Number, 
   posts: [PostSchema]
+});
+
+//referencing postCount (ie joe.postCount) will run the function in get
+// we can use THIS inside the get function to refer to the instance of the model we are working on 
+UserSchema.virtual('postCount').get(function() {
+  return this.posts.length; 
 });
 
 //create a model with the schema and the 'user' collection

@@ -1,3 +1,5 @@
+###Mongoose Notes 
+
 ####General notes 
 - remember to run mongod first!
 - all operations on the db are async 
@@ -29,10 +31,11 @@
 ####ObjectId 
 - ids are assigned by mongoose when a new record is created (even before being sent to the db) 
 - these are objects. Use `_id.toString()` to get a string value when making a comparison.  
-- However, we can use `User.findOne({ _id: joe_id})` to retrieve a value. Mongoose can deal with this internally.   
+- However, we can use `User.findOne({ _id: joe_id})` to retrieve a value. Mongoose can deal with this internally. 
 
-####Promises  
-- chained promises are executed sequentially  
-- the result of the first promise can be captured in the parameter of the second in two ways. First: use the return keyword. Second: use the one-line fat arrow form: `.then(() => User.findOne({name: 'Joe'}))`. This implicitly returns the result.  
-- We can call a promise directly on joe.save(). But, if this function is inside a .then() function, and we want to chain another then(), we must do `return joe.save()` or use the one-line fat arrow as previously. See subdocument_test.js line 29. 
-- this type of chaining removes the need for ugly nested callbacks  
+####Virtual Types / Properties / Fields   
+- This is any field of data on our model exists on the server but does not get persisted to the db.
+- These are useful for derivative properties.  
+- They are not included in the Schema definition. They are added to the schema using `virtual('property').get(function(){})`. Then, when we reference the property name `joe.property`, it will return a value from the function inside get scoped to the current instance of the model. For this reason, we cannot use the `() => {}` function which is globally scoped.  
+
+

@@ -10,6 +10,7 @@
 1. We should use the async func `done()` when doing a db operation. This delays the test until the operation is finished.  
 2. We can use hooks, such as before() and beforeEach() to access the db at specific moments in the test cycle  
 3. This SO answer suggests not to use done() in promise based Mocha testing  http://stackoverflow.com/questions/39716569/nodejs-unhandledpromiserejectionwarning 
+4. Use `xit` instead of `it` to tell Mocha to skip a test
 
 ####Mocha and Nodemon    
 - We can usually call `mocha --watch` to get mocha to monitor files. But this doesn't play well with mongoose. 
