@@ -44,4 +44,18 @@
 - These are useful for derivative properties.  
 - They are not included in the Schema definition. They are added to the schema using `virtual('property').get(function(){})`. Then, when we reference the property name `joe.property`, it will return a value from the function inside get scoped to the current instance of the model. For this reason, we cannot use the `() => {}` function which is globally scoped.  
 
+####Associated Data  
+- Data from one collection can be associated with data from another using the Schema and ObjectIds. This works by pushing or assigning the ObjectIds from one collection to the model instance of another.  
+- In the schema, we create a field for the associated collection and give it: `type: Schema.Types.ObjectId` and property `ref` of the other collection name.  
+- We can then assign the model instance from the second collection (or push for an array) to the first collection. This will now not pass all the data from that instance but only the ObjectId. 
+- When we make a query (see below), we can then use populate(property) to return the data from the associated collection.  
+- WARN: be careful with naming conventions! The model class is `BlogPost`. The model instance is `blogPost`. On the UserSchema, the property is `blogPosts` (an array) but the ref is `blogPost` - so the ref refers to the model instance. When we call populate(), we pass the property on the schema we are querying - `blogPosts`. Finally, when we reference the whole collection on `mongoose.connection.collection.blogposts` the collection name gets normalised. 
+- With Mongoose, we cannot recursively load up all associated data automatically. But nested associations can be fetched by passing a configuration object to populate with a new populate property.  
+
+
+####Queries
+- `User.findOne({name: 'Joe'})` is a **query** but `.then()` actually executes the query (sends it to the db). Before promises, the `exec()` function could be used.  
+- Basic structure: collection | criteria | modifier | execution 
+- We can use the populate() function as a modifier to load **associated data** into the query response.  
+
 

@@ -7,3 +7,4 @@
 - the result of the first promise can be captured in the parameter of the second in two ways. First: use the return keyword. Second: use the one-line fat arrow form: `.then(() => User.findOne({name: 'Joe'}))`. This implicitly returns the result.  
 - We can call a promise directly on joe.save(). But, if this function is inside a .then() function, and we want to chain another then(), we must do `return joe.save()` or use the one-line fat arrow as previously. See subdocument_test.js line 29. 
 - this type of chaining removes the need for ugly nested callbacks.  
+- `Promise.all([])` - This takes an array of async function and returns resolved only when all functions have returned successfully. 

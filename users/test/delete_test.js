@@ -38,7 +38,7 @@ describe('Deleting a user', () => {
       });
   });
 
-  it('should remove using findByIdAndRemove', () => {
+  it('should remove using findByIdAndRemove', (done) => {
     User.findByIdAndRemove(joe._id)
       .then(() => User.findOne({name: 'Joe'})) 
       .then((user) => {

@@ -7,7 +7,7 @@ describe('Validating records', () => {
     const user = new User({name: undefined})
     const validationResult = user.validateSync();
     const { message } = validationResult.errors.name; 
-    console.log(chalk.red(message)); 
+    // console.log(chalk.red(message)); 
 
     assert(message === 'Name is required.'); 
   });
@@ -16,7 +16,7 @@ describe('Validating records', () => {
     const user = new User({name: 'Al'})
     const validationResult = user.validateSync();
     const { message } = validationResult.errors.name; 
-    console.log(chalk.red(message)); 
+    // console.log(chalk.red(message)); 
 
     assert(message === 'Name must be longer than 2 characters.'); 
   });
@@ -27,7 +27,7 @@ describe('Validating records', () => {
       .catch((validationResult) => {
           const { message } = validationResult.errors.name; 
           assert(message === 'Name must be longer than 2 characters.');
-          console.log(chalk.red(message)); 
+          // console.log(chalk.red(message)); 
       })
 
 

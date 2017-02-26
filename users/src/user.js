@@ -18,7 +18,7 @@ const UserSchema = new Schema({
   //set up assocation with blogposts collection
   blogPosts: [{
     type: Schema.Types.ObjectId, 
-    ref: 'blogposts'
+    ref: 'blogPost'
   }]
 });
 
