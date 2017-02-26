@@ -7,9 +7,14 @@
 
 ####Basic Concepts  
 - all operations on the db are async 
-- We have a server side model instance that is created by instantiating the model `var joe = new User({name: 'Joe'})`. We also have mongoDB side collection which is represented by the model itself. The instance and the model have different methods, and the instance must be explicitly updated by server side code. It is not affected by the db itself.  
+- We have a server side model instance that is created by instantiating the model `var joe = new User({name: 'Joe'})`. We also have mongoDB side collection which is represented by the model itself. The instance and the model have different methods, and the instance must be explicitly updated by server side code. It is not affected by the db itself. Models: http://mongoosejs.com/docs/models.html. 
 - In Mongo, unlike in relational dbs, datasets are related by nesting. We can have embedded or nested schemas, but they will be included in one model and one collection. This idea is called sub-documents.
-- the return value from query the database will be a model instance with the methods below. So this model instance can be created by calling `new` or by retrieving from the db.   
+- the return value from query the database will be a model instance with the methods below. So this model instance can be created by calling `new` or by retrieving from the db.  
+
+####Associations in Non-Relational Dbs 
+- In mongodb, we can link separate collections with a system of ids. For example, we can keep a user's posts in one collection and keep the users plus posts ids in another collection. This avoids nesting and makes some operations simpler. However, other operations may require two lookups (e.g. getting all posts assocatiated with a user). In a MySQL db, this kind of query can be done in one operation. 
+- Using multiple collections has performance implications.  
+- Nb. In this demo, the posts collection remains to show an embedded schema.  
  
 ####Model Instance: Functions and Properties (use on server-side)
 - `save()` - saves an instance to its collection, returns a **promise**  

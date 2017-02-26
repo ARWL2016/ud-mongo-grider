@@ -13,7 +13,13 @@ const UserSchema = new Schema({
     },
     required: [true, 'Name is required.']
   }, 
-  posts: [PostSchema]
+  posts: [PostSchema], 
+  likes: Number, 
+  //set up assocation with blogposts collection
+  blogPosts: [{
+    type: Schema.Types.ObjectId, 
+    ref: 'blogposts'
+  }]
 });
 
 //referencing postCount (ie joe.postCount) will run the function in get
@@ -22,7 +28,7 @@ UserSchema.virtual('postCount').get(function() {
   return this.posts.length; 
 });
 
-//create a model with the schema and the 'user' collection
+//create a model with the schema 'Userschema' and the collection 'user'
 //model == class 
 //User represents the entire collection
 const User = mongoose.model('user', UserSchema); 

@@ -15,8 +15,12 @@ before((done) => {
 
 //test hook
   beforeEach((done) => {
-    mongoose.connection.collections.users.drop(()=> {
-      //ready to run next test, so call: 
-      done(); 
-    }); //wipes all records
+    const { users, comments, blogPosts } = mongoose.connection.collections; 
+    users.drop(()=> {
+      comments.drop(() => {
+        blogPosts.drop(() => {
+          done();
+        }); //wipes all records
+      }); 
+    }); 
   }); 
