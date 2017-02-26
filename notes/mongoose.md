@@ -58,4 +58,6 @@
 - Basic structure: collection | criteria | modifier | execution 
 - We can use the populate() function as a modifier to load **associated data** into the query response.  
 
+####Middleware 
+- These are functions called before and after Mongoose events: save(), validate(), remove() or emit(). 
 

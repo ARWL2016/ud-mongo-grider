@@ -28,6 +28,16 @@ UserSchema.virtual('postCount').get(function() {
   return this.posts.length; 
 });
 
+UserSchema.pre('remove', function(next) {
+  const BlogPost = mongoose.model('blogPost'); //better than require, only invoked at function runtime  
+  //this === for example, joe
+
+  BlogPost.remove({_id: { $in: this.blogPosts }})
+    .then(() => next());
+  //if the id is IN this.blogPosts, remove it  (like a FOR IN) 
+  //next() - go on to the next middleware
+});
+
 //create a model with the schema 'Userschema' and the collection 'user'
 //model == class 
 //User represents the entire collection
