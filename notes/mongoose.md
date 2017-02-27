@@ -18,7 +18,7 @@
  
 ####Model Instance: Functions and Properties (use on server-side)
 - `save()` - saves an instance to its collection, returns a **promise**  
-- `remove()` - deletes SINGLE instance from db, returns the **removed object**. We can also use `remove()`    on subdocuments (l.46) - which works directly on the model instance returned from the db.   
+- `remove()` - deletes SINGLE instance from db, returns the **removed object**. We can also use `remove()` on subdocuments (l.46) - which works directly on the model instance returned from the db.   
 - `isNew` - returns true if the instance has not been saved to a collection   
 - `set()` - changes the value of a given property of an instance in memory - use with `save()` to achieve a db update. Set is not async. Takes a property value pair, e.g. `set('name', 'Joe')`
 - `update()` - sets and saves
