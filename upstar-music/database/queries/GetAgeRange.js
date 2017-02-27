@@ -10,13 +10,13 @@ module.exports = () => {
     .find({}) // returns an array of objects
     .sort({ age: 1 }) //sorts the array 
     .limit(1) //returns an ARRAY with one object 
-    .then(artists = artists[0].age); // returns the age 
+    .then(artists => artists[0].age); // returns the age 
 
   const maxQuery = Artist
     .find({}) 
     .sort({ age: -1 }) 
     .limit(1) 
-    .then(artists = artists[0].age); 
+    .then(artists => artists[0].age); 
 
     return Promise.all([minQuery, maxQuery])
       .then((result) => { // the result with be an array of two numbers 
