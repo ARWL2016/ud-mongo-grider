@@ -25,8 +25,9 @@
 - `validateSync()` - validates an instance based on the schema and returns immediately. [cf validate() which operates asynchronously and uses a callback]. The error message can be defined in the schema and accessed with: `const validationResult = user.validateSync(); const { message } = validationResult.errors.name;`. Invalid data cannot be saved to the database. The save() function will return an error object which we can grab with catch(). 
 
 ####Model Class: Methods (use on mongoDB side)    
-- `find()` - finds all users that match the criteria, returns an **array**. If you pass find({}) it will return the whole collection    
-- `findOne()` - finds the first user that matches the criteria, returns an **object**   
+- `find()` - finds all users that match the criteria, returns an **array**. If you pass find({}) it will return the whole collection   
+- `findOne({})` - finds the first user that matches the criteria, returns an **object**   
+- `findById(_id)` - finds one by id - can pass in raw id string  
 - `remove()` -  deletes ALL users that match passed criteria  
 - `findOneAndRemove()` - deletes one user that match passed criteria  
 - `findByIdAndRemove()` - deletes one user that match id (can pass in raw id or object)
