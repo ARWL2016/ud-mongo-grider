@@ -61,3 +61,8 @@
 ####Middleware 
 - These are functions called before and after Mongoose events: save(), validate(), remove() or emit(). 
 
+####Query Modifiers  
+- skip() - skips results from a query.
+- limit() - limits the total number of results from a query.
+- sort() - eg: `.sort({ name: 1 })` - sort by name ascending, or -1 for descending 
+
