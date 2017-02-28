@@ -21,3 +21,7 @@
 - In other words, we must create the object first, then use bracket notation to pass a variable as a key. 
 - In es6, this approach can be condensed to an object literal approach: 
  `{ [sortProperty]: 1 }`  
+
+ ####Object Methods  
+ - in es5 we put a method on an object like this: `{ property: function() {} }`
+ - in es6, we can just write: `{ greeting() {} } `
