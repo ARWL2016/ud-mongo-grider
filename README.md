@@ -10,6 +10,7 @@ https://github.com/StephenGrider/MongoCasts
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/ 
 http://mongoosejs.com/docs/index.html 
 https://docs.mongodb.com/manual/reference/operator/update/ 
+https://docs.mongodb.com/manual/reference/operator/query/ (query operators)
 
 ####Technology 
 1. MongoDB 

@@ -31,9 +31,10 @@
 - `remove()` -  deletes ALL users that match passed criteria  
 - `findOneAndRemove()` - deletes one user that match passed criteria  
 - `findByIdAndRemove()` - deletes one user that match id (can pass in raw id or object)
-- `update()` - sets and saves - pass two objects. 
+- `update()` - sets and saves - pass two objects. Note that by default this only updates one record. 
 - `findOneAndUpdate()` - sets and saves - pass two objects. 
 - `findByIdAndUpdate()` - sets and saves - pass id and object. 
+- `count()` - returns the total number of records in a collection  
 
 ####ObjectId 
 - ids are assigned by mongoose when a new record is created (even before being sent to the db) 
@@ -65,5 +66,10 @@
 ####Query Modifiers  
 - skip() - skips results from a query.
 - limit() - limits the total number of results from a query.
-- sort() - eg: `.sort({ name: 1 })` - sort by name ascending, or -1 for descending 
+- sort() - eg: `.sort({ name: 1 })` - sort by name ascending, or -1 for descending db
+
+####Query Selectors 
+- https://docs.mongodb.com/manual/reference/operator/query/
+- to make more refined queries of a collection, we can use the query selector operators that belong to mongo
+- They are passed to a find method as nested objects, for example: `find( { qty: { $gte: 20 } } )` means qty >=20. 
 

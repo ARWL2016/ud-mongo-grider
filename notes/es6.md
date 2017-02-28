@@ -11,3 +11,13 @@
 
 ####Object Destructuring
 - { _id: _id } can be replaced by { _id } in es6.  
+
+####Interpolated Keys 
+- WARN: We CANNOT just declare an object in literal notation and use a variable for a key. 
+- In es5, we have to do this: 
+  `const sortProperty = 'name';`
+  `const sortOrder = {}`
+  `const sortOrder[sortProperty] = 1`
+- In other words, we must create the object first, then use bracket notation to pass a variable as a key. 
+- In es6, this approach can be condensed to an object literal approach: 
+ `{ [sortProperty]: 1 }`  

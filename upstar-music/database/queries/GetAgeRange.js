@@ -6,7 +6,8 @@ const Artist = require('../models/artist');
  * containing the min and max ages, like { min: 16, max: 45 }.
  */
 module.exports = () => {
-  const minQuery = Artist
+
+  const minQuery = Artist //minQuery is the return value of the chained functions called on Artist
     .find({}) // returns an array of objects
     .sort({ age: 1 }) //sorts the array 
     .limit(1) //returns an ARRAY with one object 
