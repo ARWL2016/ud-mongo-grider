@@ -41,6 +41,10 @@
 - these are objects. Use `_id.toString()` to get a string value when making a comparison.  
 - However, we can use `User.findOne({ _id: joe_id})` to retrieve a value. Mongoose can deal with this internally. 
 
+####Sub-documents
+- These are defined in a seperate schema which is passed as a value to the main schema: `property: Subschema`
+- If the subschema is to be used for multiple records, we can define an array: `property: [SubSchema]`
+
 ####Virtual Types / Properties / Fields   
 - This is any field of data on our model exists on the server but does not get persisted to the db.
 - These are useful for derivative properties.  

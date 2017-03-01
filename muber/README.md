@@ -11,3 +11,4 @@
  - Mocha  
  - Supertest (for mocking http requests)  
  - Body-parser - node body parsing middleware  
+ - GeoJSON http://geojson.org/ 
