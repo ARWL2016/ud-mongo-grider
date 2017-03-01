@@ -6,7 +6,7 @@ describe('The express app', () => {
   it('handles a GET request to /api', (done) => {
     request(app)
       .get('/api')
-      .end((err, response) => { //check supertest docs for use of error
+      .end((err, response) => { //check supertest docs for use of 'error'
         assert(response.body.hi === 'there'); 
         done(); 
       });

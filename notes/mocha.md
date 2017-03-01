@@ -13,6 +13,7 @@
 4. Use `xit` instead of `it` to tell Mocha to skip a test  
 5. Use `it.only` to just run one test  
 6. Note that the test output should include any console.log() statements invoked in the tested functions  
+7. WARN: Mongoose, Mocha and Express sometimes don't play well together.  
 
 ####Mocha and Nodemon    
 - We can usually call `mocha --watch` to get mocha to monitor files. But this doesn't play well with mongoose. 

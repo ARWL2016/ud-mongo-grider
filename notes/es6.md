@@ -1,6 +1,7 @@
 ####Arrow Functions and This
 - When using the virtual schema, we want THIS to be bound to the object where the function was called, so we must use the FUNCTION keyword. 
 - In a () => {} function, THIS will be bound to the global scope. 
+- If there is only one parameter, and it is a simple identifier (no default value or destructuring), the () can be omitted: `.then(count => {})`. But if there is no parameter, we need to include () to signify the function. 
 
 ####Promises  
 - chained promises are executed sequentially  
